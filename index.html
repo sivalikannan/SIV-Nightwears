@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>SIV NIGHTWEARS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="header">
+        <nav>
+            <h1>SIV NIGHTWEARS</h1>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                
+            </ul>
+        </nav>
+    </div>
+    <div class="searchbar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="searchInput" placeholder="Search Here">
+        <button id="searchBtn" type="button">Search</button>
+    </div>
+    <div class="girlsnightwere">
+        <h2>SMALL CUBS</h2>
+    </div>
+    <div class="cubsdress">
+        <div class="dress1">
+            <img src="cubs dress/liondress.jfif.jfif">
+            <h3>LION NIGHTSUIT</h3>
+            <p>Age: 1-12</p>
+            <p>Price: $10</p>
+        </div>
+        <div class="dress2">
+            <img src="cubs dress/whitedress.jpg">
+            <h3>WHITE NIGHTSUIT</h3>
+            <p>Age: 1-12</p>
+            <p>Price: $10</p>
+
+        </div>
+        <div class="dress3">
+            <img src="cubs dress/pinkdress.jpg">
+            <h3>PINK NIGHTSUIT</h3>
+            <p>Age: 1-12</p>
+            <p>Price: $10</p>
+        </div>
+    </div>
+    <div class="girlsdressheading">
+        <h2>GIRLS WEAR</h2>
+    </div>
+    <div class="girlsdress">
+        <div class="gdress1">
+            <img src="cubs dress/girlsnightweardress1.jfif">
+            <h3>WHITE PINK NIGHTSUIT</h3>
+            <p>Age: 13-19</p>
+            <p>Price: $25</p>
+
+        </div>
+        <div class="gdress2">
+            <img src="cubs dress/girlsnightweardress2.jfif">
+            <h3>BLACK HEART NIGHTSUIT</h3>
+            <p>Age: 13-19</p>
+            <p>Price: $25</p>
+
+            
+        </div>
+        <div class="gdress3">
+            <img src="cubs dress/girlsnightweardress3.jfif">
+            <h3>METALIC PINK NIGHTSUIT</h3>
+            <p>Age: 13-19</p>
+            <p>Price: $25</p>
+            
+        </div>
+    </div>
+    
+
+    <div class="contact">
+        <h4>Contact</h4>
+        <p>9840662383</p>
+        <p>sivalimkannan@gmail.com</p>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+
+        function runSearch() {
+            const query = searchInput.value.trim().toLowerCase();
+            const cards = document.querySelectorAll('.cubsdress > div, .girlsdress > div');
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (!query || text.includes(query)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (!query) {
+                alert('Showing all products. Enter search text and click Search.');
+            }
+        }
+
+        searchBtn.addEventListener('click', runSearch);
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                runSearch();
+            }
+        });
+    </script>
+</body>
+
+</html>

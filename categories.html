@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - SIV NIGHTWEARS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="header">
+        <nav>
+            <h1>SIV NIGHTWEARS</h1>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="index.html">Back to Main</a></li>
+                <li>About Us</li>
+                <li>Contact Us</li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="categories-container">
+        <h1>Select Category</h1>
+        
+        <div class="categories-grid">
+            <div class="category-card" onclick="selectCategory('kids')">
+                <i class="fa-solid fa-child"></i>
+                <h2>Kids</h2>
+                <p>Explore our collection for children</p>
+                <button class="category-select-btn">View Kids Collection</button>
+            </div>
+            
+            <div class="category-card" onclick="selectCategory('women')">
+                <i class="fa-solid fa-person-dress"></i>
+                <h2>Women</h2>
+                <p>Explore our collection for women</p>
+                <button class="category-select-btn">View Women Collection</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectCategory(category) {
+            alert('You selected: ' + category.charAt(0).toUpperCase() + category.slice(1));
+            // You can add more functionality here, like redirecting to category pages
+        }
+    </script>
+</body>
+
+</html>
