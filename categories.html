@@ -6,26 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categories - SIV NIGHTWEARS</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 </head>
 
 <body>
-    <div class="header">
-        <nav>
-            <h1>SIV NIGHTWEARS</h1>
+<header class="site-header">
+    <div class="top-bar">
+        <span><i class="fa-solid fa-truck-fast"></i> Free shipping on orders above $50</span>
+        <span><i class="fa-solid fa-rotate-left"></i> 30-Day Easy Returns</span>
+        <span><i class="fa-solid fa-phone"></i> +91 9840662383</span>
+    </div>
+    <nav class="main-nav">
+        <a href="index.html" class="nav-brand">
+            <i class="fa-solid fa-moon"></i> SIV NIGHTWEARS
+        </a>
+        <div class="nav-search-bar">
+            <input type="text" placeholder="Search nightwear, kids, women..." disabled>
+            <button class="search-submit-btn" onclick="location.href='index.html'">
+                <i class="fa-solid fa-magnifying-glass"></i> Search
+            </button>
+        </div>
+        <div class="nav-actions">
+            <button class="nav-icon-btn search-toggle-btn" id="searchToggle" title="Search"
+                onclick="location.href='index.html'">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Search</span>
+            </button>
+            <a href="index.html" class="nav-icon-btn">
+                <i class="fa-solid fa-house"></i>
+                <span>Shop</span>
+            </a>
+            <a href="about.html" class="nav-icon-btn">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>About</span>
+            </a>
+            <a href="categories.html" class="nav-icon-btn" style="color:#FF1493;">
+                <i class="fa-solid fa-list"></i>
+                <span>Categories</span>
+            </a>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
-            <ul id="nav-menu">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="index.html">Back to Main</a></li>
-                <li>About Us</li>
-                <li>Contact Us</li>
-            </ul>
-        </nav>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="nav-menu">
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="categories.html"><i class="fa-solid fa-list"></i> Categories</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+        </ul>
     </div>
+</header>
 
     <div class="categories-container">
         <h1>Select Category</h1>
