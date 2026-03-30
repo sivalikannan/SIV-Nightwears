@@ -15,7 +15,10 @@
     <div class="header">
         <nav>
             <h1>SIV NIGHTWEARS</h1>
-            <ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="nav-menu">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="index.html">Back to Main</a></li>
@@ -122,6 +125,15 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            hamburger.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>

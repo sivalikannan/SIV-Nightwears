@@ -15,7 +15,10 @@
     <div class="header">
         <nav>
             <h1>SIV NIGHTWEARS</h1>
-            <ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="nav-menu">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="index.html">Back to Main</a></li>
                 <li>About Us</li>
@@ -45,6 +48,13 @@
     </div>
 
     <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            hamburger.classList.toggle('active');
+        });
+
         function selectCategory(category) {
             alert('You selected: ' + category.charAt(0).toUpperCase() + category.slice(1));
             // You can add more functionality here, like redirecting to category pages

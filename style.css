@@ -728,3 +728,281 @@ a {
     color: #666;
     margin: 0;
 }
+
+/* ============================================================
+   RESPONSIVE – Hamburger Menu
+   ============================================================ */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 200;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: grey;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Animate hamburger → X */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ============================================================
+   BASE FIXES for all screens
+   ============================================================ */
+img {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+}
+
+.cubsdress,
+.girlsdress {
+    flex-wrap: wrap;
+}
+
+.cubsdress > div,
+.girlsdress > div {
+    flex: 1 1 250px;
+    max-width: 340px;
+}
+
+.girlsnightwere,
+.girlsdressheading {
+    width: auto;
+    display: inline-block;
+}
+
+input[type="text"], input:not([type]) {
+    box-sizing: border-box;
+}
+
+/* ============================================================
+   TABLET  ≤ 768px
+   ============================================================ */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    nav {
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    #nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: lightblue;
+        padding: 10px 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 100;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    #nav-menu.open {
+        display: flex;
+    }
+
+    #nav-menu li {
+        margin: 8px 16px;
+    }
+
+    /* Search bar */
+    .searchbar {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    input {
+        width: 60%;
+    }
+
+    /* Product images on index */
+    .cubsdress img,
+    .girlsdress img {
+        max-width: 220px;
+        margin: 0 auto;
+    }
+
+    /* Home page */
+    .home-content h1 {
+        font-size: 2em;
+    }
+
+    /* Categories grid */
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Products grid */
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    /* About grid */
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Welcome banner */
+    .welcome-banner h1 {
+        font-size: 1.8em;
+    }
+
+    .welcome-banner p {
+        font-size: 1em;
+    }
+
+    /* Cart modal */
+    .cart-content {
+        max-width: 100%;
+    }
+}
+
+/* ============================================================
+   MOBILE  ≤ 480px
+   ============================================================ */
+@media (max-width: 480px) {
+
+    /* Navbar title */
+    nav h1 {
+        font-size: 1.1em;
+        padding-left: 8px;
+    }
+
+    /* Search */
+    input {
+        width: 80%;
+    }
+
+    /* Section headings */
+    .girlsnightwere,
+    .girlsdressheading {
+        width: 45%;
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    /* Cubs / girls dress: single column */
+    .cubsdress,
+    .girlsdress {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cubsdress > div,
+    .girlsdress > div {
+        width: 90%;
+        max-width: none;
+    }
+
+    /* Home page buttons */
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-btn, .categories-btn {
+        width: 80%;
+        justify-content: center;
+    }
+
+    .home-content h1 {
+        font-size: 1.6em;
+    }
+
+    /* Categories */
+    .categories-container h1 {
+        font-size: 1.8em;
+    }
+
+    .category-card h2 {
+        font-size: 1.5em;
+    }
+
+    /* Products */
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card img {
+        height: 220px;
+    }
+
+    /* Category section heading */
+    .category-section h2 {
+        font-size: 1.5em;
+    }
+
+    /* About */
+    .about-header h1 {
+        font-size: 1.8em;
+    }
+
+    .tagline {
+        font-size: 1.1em;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    /* Why choose us */
+    .why-choose-us h2 {
+        font-size: 1.5em;
+    }
+
+    /* Contact footer */
+    .contact {
+        font-size: 0.95em;
+        padding: 4%;
+    }
+
+    /* Notification */
+    .notification {
+        right: 10px;
+        left: 10px;
+        text-align: center;
+    }
+}

@@ -15,10 +15,12 @@
     <div class="header">
         <nav>
             <h1>SIV NIGHTWEARS</h1>
-            <ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="nav-menu">
                 <li><a href="index.html">Back to Main</a></li>
                 <li><a href="about.html">About Us</a></li>
-            
                 <li><a href="#" onclick="toggleCart()" class="cart-link"><i class="fa-solid fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
             </ul>
         </nav>
@@ -133,6 +135,13 @@
     </div>
 
     <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            hamburger.classList.toggle('active');
+        });
+
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
         function addToCart(productName, price, image) {
