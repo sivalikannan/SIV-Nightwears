@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - SIV NIGHTWEARS | Premium Nightwear</title>
+    <meta name="description" content="SIV Nightwears - Premium organic nightwear for kids and women. Comfort meets style.">
+    <title>SIV NIGHTWEARS | Premium Nightwear for Kids & Women</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 </head>
@@ -12,8 +16,8 @@
 <!-- ===== SITE HEADER ===== -->
 <header class="site-header">
     <div class="top-bar">
-        <span><i class="fa-solid fa-truck-fast"></i> Free shipping on orders above $50</span>
-        <span><i class="fa-solid fa-rotate-left"></i> 30-Day Easy Returns</span>
+        <span><i class="fa-solid fa-truck-fast"></i> Free shipping over $50</span>
+        <span><i class="fa-solid fa-tag"></i> Use code <strong>FIRST10</strong> for 10% off</span>
         <span><i class="fa-solid fa-phone"></i> +91 9840662383</span>
     </div>
     <nav class="main-nav">
@@ -27,31 +31,29 @@
             </button>
         </div>
         <div class="nav-actions">
-            <button class="nav-icon-btn search-toggle-btn" id="searchToggle" title="Search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <span>Search</span>
+            <button class="nav-icon-btn search-toggle-btn" id="searchToggle">
+                <i class="fa-solid fa-magnifying-glass"></i><span>Search</span>
             </button>
-            <a href="about.html" class="nav-icon-btn">
-                <i class="fa-solid fa-circle-info"></i>
-                <span>About</span>
+            <a href="categories.html" class="nav-icon-btn">
+                <i class="fa-solid fa-list"></i><span>Categories</span>
             </a>
-            <button class="nav-icon-btn" id="wishlistNavBtn" title="Wishlist">
-                <i class="fa-regular fa-heart"></i>
-                <span>Wishlist</span>
+            <a href="about.html" class="nav-icon-btn">
+                <i class="fa-solid fa-circle-info"></i><span>About</span>
+            </a>
+            <button class="nav-icon-btn" onclick="toggleWishlistPanel()">
+                <i class="fa-regular fa-heart"></i><span>Wishlist</span>
+                <span class="cart-badge" id="wishlist-count">0</span>
             </button>
-            <button class="nav-icon-btn cart-nav-btn" onclick="toggleCart()" title="Cart">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <span>Cart</span>
+            <button class="nav-icon-btn cart-nav-btn" onclick="toggleCart()">
+                <i class="fa-solid fa-bag-shopping"></i><span>Cart</span>
                 <span class="cart-badge" id="cart-count">0</span>
             </button>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
         </div>
     </nav>
     <div class="mobile-search-bar" id="mobile-search-bar">
         <input type="text" id="mobileSearchInput" placeholder="Search nightwear...">
-        <button id="mobileSearchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button id="mobileSearchBtn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
     </div>
     <div class="mobile-menu" id="nav-menu">
         <ul>
@@ -63,40 +65,128 @@
     </div>
 </header>
 
-<!-- ===== HERO BANNER ===== -->
-<div class="welcome-banner">
-    <div class="banner-content">
-        <h1>Premium Nightwear Collection</h1>
-        <p>Comfort meets style — for kids &amp; women</p>
-        <div class="banner-tags">
-            <span><i class="fa-solid fa-check-circle"></i> 100% Organic</span>
-            <span><i class="fa-solid fa-check-circle"></i> Free Returns</span>
-            <span><i class="fa-solid fa-check-circle"></i> Fast Shipping</span>
+<!-- ===== HERO SECTION ===== -->
+<section class="hero-section">
+    <div class="hero-content">
+        <span class="hero-eyebrow"><i class="fa-solid fa-star"></i> New Collection 2025</span>
+        <h1>Sleep in Style.<br>Dream in Comfort.</h1>
+        <p>Premium organic nightwear crafted for kids &amp; women — soft, safe, and stylish.</p>
+        <div class="hero-cta">
+            <a href="#products" class="btn-primary"><i class="fa-solid fa-bag-shopping"></i> Shop Now</a>
+            <a href="categories.html" class="btn-outline">Browse Categories <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat"><strong>500+</strong><span>Happy Customers</span></div>
+            <div class="hero-stat"><strong>100%</strong><span>Organic Fabric</span></div>
+            <div class="hero-stat"><strong>4.8★</strong><span>Avg Rating</span></div>
+            <div class="hero-stat"><strong>30-Day</strong><span>Free Returns</span></div>
         </div>
     </div>
-</div>
+    <div class="hero-overlay"></div>
+</section>
+
+<!-- ===== TRUST BADGES ===== -->
+<section class="trust-strip">
+    <div class="trust-item">
+        <div class="trust-icon"><i class="fa-solid fa-truck-fast"></i></div>
+        <div class="trust-text"><strong>Free Shipping</strong><span>On orders over $50</span></div>
+    </div>
+    <div class="trust-item">
+        <div class="trust-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="trust-text"><strong>Secure Payment</strong><span>100% protected</span></div>
+    </div>
+    <div class="trust-item">
+        <div class="trust-icon"><i class="fa-solid fa-rotate-left"></i></div>
+        <div class="trust-text"><strong>Easy Returns</strong><span>30-day hassle-free</span></div>
+    </div>
+    <div class="trust-item">
+        <div class="trust-icon"><i class="fa-solid fa-headset"></i></div>
+        <div class="trust-text"><strong>24/7 Support</strong><span>Always here to help</span></div>
+    </div>
+    <div class="trust-item">
+        <div class="trust-icon"><i class="fa-solid fa-leaf"></i></div>
+        <div class="trust-text"><strong>Eco-Friendly</strong><span>Organic certified</span></div>
+    </div>
+</section>
+
+<!-- ===== PROMO BANNER ===== -->
+<section class="promo-banner">
+    <div class="promo-card promo-kids">
+        <div class="promo-text">
+            <span class="promo-tag">Kids Collection</span>
+            <h3>Cute &amp; Cozy Nightsuits</h3>
+            <p>From $8.00 &nbsp;|&nbsp; Ages 1–12</p>
+            <a href="#kids-section" class="promo-link">Shop Kids <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <div class="promo-card promo-women">
+        <div class="promo-text">
+            <span class="promo-tag">Women Collection</span>
+            <h3>Elegant Night Dresses</h3>
+            <p>From $25.00 &nbsp;|&nbsp; Sizes S–XL</p>
+            <a href="#women-section" class="promo-link">Shop Women <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <div class="promo-card promo-offer">
+        <div class="promo-text">
+            <span class="promo-tag">Limited Offer</span>
+            <h3>Up to 33% OFF</h3>
+            <p>On selected styles today</p>
+            <a href="#products" class="promo-link">Grab Deal <i class="fa-solid fa-bolt"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FILTER & SORT BAR ===== -->
+<section class="filter-bar-section" id="products">
+    <div class="filter-bar">
+        <div class="filter-pills">
+            <button class="filter-pill active" data-filter="all">All Products</button>
+            <button class="filter-pill" data-filter="kids">Kids</button>
+            <button class="filter-pill" data-filter="women">Women</button>
+        </div>
+        <div class="filter-right">
+            <span class="product-count" id="product-count">7 products</span>
+            <div class="sort-wrap">
+                <label><i class="fa-solid fa-sort"></i></label>
+                <select id="sortSelect">
+                    <option value="default">Featured</option>
+                    <option value="price-low">Price: Low → High</option>
+                    <option value="price-high">Price: High → Low</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="name">A → Z</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- ===== PRODUCTS ===== -->
-<div class="products-container">
+<main class="products-container" id="main-products">
 
     <!-- Kids Section -->
-    <div class="category-section">
+    <div class="category-section" id="kids-section">
         <div class="section-header">
             <h2><i class="fa-solid fa-baby"></i> Kids Collection</h2>
             <span class="section-badge">Ages 1–12</span>
         </div>
         <div class="products-grid" id="kids-products">
 
-            <div class="product-card" data-search="lion nightsuit kids">
+            <div class="product-card" data-search="lion nightsuit kids" data-category="kids" data-price="10" data-rating="4">
                 <div class="product-image-wrap">
                     <span class="product-badge badge-new">New</span>
-                    <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this, 'Lion Nightsuit')"><i class="fa-regular fa-heart"></i></button>
                     <img src="cubs dress/liondress.jfif.jfif" alt="Lion Nightsuit">
+                    <div class="quick-view-overlay"><button onclick="addToCart('Lion Nightsuit',10,'cubs dress/liondress.jfif.jfif')"><i class="fa-solid fa-cart-plus"></i> Quick Add</button></div>
                 </div>
                 <div class="product-info">
                     <h3>Lion Nightsuit</h3>
-                    <div class="product-rating"><span class="stars">★★★★☆</span><span class="review-count">(24 reviews)</span></div>
-                    <p class="product-meta">Age: 1–12 &nbsp;|&nbsp; Sizes: XS–L</p>
+                    <div class="product-rating"><span class="stars">★★★★☆</span><span class="review-count">(24)</span></div>
+                    <p class="product-meta"><i class="fa-solid fa-child"></i> Age 1–12 &nbsp;·&nbsp; XS to L</p>
+                    <div class="size-picker">
+                        <span class="size-chip">XS</span><span class="size-chip">S</span>
+                        <span class="size-chip active">M</span><span class="size-chip">L</span>
+                    </div>
                     <div class="product-pricing">
                         <span class="price">$10.00</span>
                         <span class="original-price">$15.00</span>
@@ -105,21 +195,26 @@
                     <p class="stock-status in-stock"><i class="fa-solid fa-circle-dot"></i> In Stock</p>
                     <div class="product-actions">
                         <button class="add-to-cart-btn" onclick="addToCart('Lion Nightsuit',10,'cubs dress/liondress.jfif.jfif')"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-                        <button class="buy-now-btn" onclick="buyNow('Lion Nightsuit',10,'cubs dress/liondress.jfif.jfif')">Buy Now</button>
+                        <button class="buy-now-btn" onclick="buyNow('Lion Nightsuit',10,'cubs dress/liondress.jfif.jfif')"><i class="fa-solid fa-bolt"></i> Buy Now</button>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card" data-search="white nightsuit kids">
+            <div class="product-card" data-search="white nightsuit kids" data-category="kids" data-price="10" data-rating="5">
                 <div class="product-image-wrap">
                     <span class="product-badge badge-bestseller">Bestseller</span>
-                    <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this, 'White Nightsuit')"><i class="fa-regular fa-heart"></i></button>
                     <img src="cubs dress/whitedress.jpg" alt="White Nightsuit">
+                    <div class="quick-view-overlay"><button onclick="addToCart('White Nightsuit',10,'cubs dress/whitedress.jpg')"><i class="fa-solid fa-cart-plus"></i> Quick Add</button></div>
                 </div>
                 <div class="product-info">
                     <h3>White Nightsuit</h3>
-                    <div class="product-rating"><span class="stars">★★★★★</span><span class="review-count">(48 reviews)</span></div>
-                    <p class="product-meta">Age: 1–12 &nbsp;|&nbsp; Sizes: XS–L</p>
+                    <div class="product-rating"><span class="stars">★★★★★</span><span class="review-count">(48)</span></div>
+                    <p class="product-meta"><i class="fa-solid fa-child"></i> Age 1–12 &nbsp;·&nbsp; XS to L</p>
+                    <div class="size-picker">
+                        <span class="size-chip">XS</span><span class="size-chip active">S</span>
+                        <span class="size-chip">M</span><span class="size-chip">L</span>
+                    </div>
                     <div class="product-pricing">
                         <span class="price">$10.00</span>
                         <span class="original-price">$14.00</span>
@@ -128,20 +223,25 @@
                     <p class="stock-status in-stock"><i class="fa-solid fa-circle-dot"></i> In Stock</p>
                     <div class="product-actions">
                         <button class="add-to-cart-btn" onclick="addToCart('White Nightsuit',10,'cubs dress/whitedress.jpg')"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-                        <button class="buy-now-btn" onclick="buyNow('White Nightsuit',10,'cubs dress/whitedress.jpg')">Buy Now</button>
+                        <button class="buy-now-btn" onclick="buyNow('White Nightsuit',10,'cubs dress/whitedress.jpg')"><i class="fa-solid fa-bolt"></i> Buy Now</button>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card" data-search="pink nightsuit kids">
+            <div class="product-card" data-search="pink nightsuit kids" data-category="kids" data-price="10" data-rating="4">
                 <div class="product-image-wrap">
-                    <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this, 'Pink Nightsuit')"><i class="fa-regular fa-heart"></i></button>
                     <img src="cubs dress/pinkdress.jpg" alt="Pink Nightsuit">
+                    <div class="quick-view-overlay"><button onclick="addToCart('Pink Nightsuit',10,'cubs dress/pinkdress.jpg')"><i class="fa-solid fa-cart-plus"></i> Quick Add</button></div>
                 </div>
                 <div class="product-info">
                     <h3>Pink Nightsuit</h3>
-                    <div class="product-rating"><span class="stars">★★★★☆</span><span class="review-count">(18 reviews)</span></div>
-                    <p class="product-meta">Age: 1–12 &nbsp;|&nbsp; Sizes: XS–L</p>
+                    <div class="product-rating"><span class="stars">★★★★☆</span><span class="review-count">(18)</span></div>
+                    <p class="product-meta"><i class="fa-solid fa-child"></i> Age 1–12 &nbsp;·&nbsp; XS to L</p>
+                    <div class="size-picker">
+                        <span class="size-chip active">XS</span><span class="size-chip">S</span>
+                        <span class="size-chip">M</span><span class="size-chip">L</span>
+                    </div>
                     <div class="product-pricing">
                         <span class="price">$10.00</span>
                         <span class="original-price">$13.00</span>
@@ -150,21 +250,26 @@
                     <p class="stock-status in-stock"><i class="fa-solid fa-circle-dot"></i> In Stock</p>
                     <div class="product-actions">
                         <button class="add-to-cart-btn" onclick="addToCart('Pink Nightsuit',10,'cubs dress/pinkdress.jpg')"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-                        <button class="buy-now-btn" onclick="buyNow('Pink Nightsuit',10,'cubs dress/pinkdress.jpg')">Buy Now</button>
+                        <button class="buy-now-btn" onclick="buyNow('Pink Nightsuit',10,'cubs dress/pinkdress.jpg')"><i class="fa-solid fa-bolt"></i> Buy Now</button>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card" data-search="blue nightsuit kids">
+            <div class="product-card" data-search="blue nightsuit kids" data-category="kids" data-price="8" data-rating="3">
                 <div class="product-image-wrap">
                     <span class="product-badge badge-sale">Sale</span>
-                    <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this, 'Blue Nightsuit')"><i class="fa-regular fa-heart"></i></button>
                     <img src="cubs dress/bluedress.jpg" alt="Blue Nightsuit">
+                    <div class="quick-view-overlay"><button onclick="addToCart('Blue Nightsuit',8,'cubs dress/bluedress.jpg')"><i class="fa-solid fa-cart-plus"></i> Quick Add</button></div>
                 </div>
                 <div class="product-info">
                     <h3>Blue Nightsuit</h3>
-                    <div class="product-rating"><span class="stars">★★★☆☆</span><span class="review-count">(12 reviews)</span></div>
-                    <p class="product-meta">Age: 1–12 &nbsp;|&nbsp; Sizes: XS–L</p>
+                    <div class="product-rating"><span class="stars">★★★☆☆</span><span class="review-count">(12)</span></div>
+                    <p class="product-meta"><i class="fa-solid fa-child"></i> Age 1–12 &nbsp;·&nbsp; XS to L</p>
+                    <div class="size-picker">
+                        <span class="size-chip">XS</span><span class="size-chip">S</span>
+                        <span class="size-chip active">M</span><span class="size-chip">L</span>
+                    </div>
                     <div class="product-pricing">
                         <span class="price">$8.00</span>
                         <span class="original-price">$12.00</span>
@@ -173,7 +278,7 @@
                     <p class="stock-status low-stock"><i class="fa-solid fa-circle-dot"></i> Only 3 Left!</p>
                     <div class="product-actions">
                         <button class="add-to-cart-btn" onclick="addToCart('Blue Nightsuit',8,'cubs dress/bluedress.jpg')"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-                        <button class="buy-now-btn" onclick="buyNow('Blue Nightsuit',8,'cubs dress/bluedress.jpg')">Buy Now</button>
+                        <button class="buy-now-btn" onclick="buyNow('Blue Nightsuit',8,'cubs dress/bluedress.jpg')"><i class="fa-solid fa-bolt"></i> Buy Now</button>
                     </div>
                 </div>
             </div>
@@ -182,23 +287,28 @@
     </div>
 
     <!-- Women Section -->
-    <div class="category-section">
+    <div class="category-section" id="women-section">
         <div class="section-header">
             <h2><i class="fa-solid fa-person-dress"></i> Women Collection</h2>
             <span class="section-badge">Sizes S–XL</span>
         </div>
         <div class="products-grid" id="women-products">
 
-            <div class="product-card" data-search="classic night dress women">
+            <div class="product-card" data-search="classic night dress women" data-category="women" data-price="25" data-rating="5">
                 <div class="product-image-wrap">
                     <span class="product-badge badge-new">New</span>
-                    <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this, 'Classic Night Dress')"><i class="fa-regular fa-heart"></i></button>
                     <img src="cubs dress/girlsnightweardress1.jfif" alt="Classic Night Dress">
+                    <div class="quick-view-overlay"><button onclick="addToCart('Classic Night Dress',25,'cubs dress/girlsnightweardress1.jfif')"><i class="fa-solid fa-cart-plus"></i> Quick Add</button></div>
                 </div>
                 <div class="product-info">
                     <h3>Classic Night Dress</h3>
-                    <div class="product-rating"><span class="stars">★★★★★</span><span class="review-count">(67 reviews)</span></div>
-                    <p class="product-meta">Sizes: S–XL &nbsp;|&nbsp; Women</p>
+                    <div class="product-rating"><span class="stars">★★★★★</span><span class="review-count">(67)</span></div>
+                    <p class="product-meta"><i class="fa-solid fa-person-dress"></i> Women &nbsp;·&nbsp; S to XL</p>
+                    <div class="size-picker">
+                        <span class="size-chip">S</span><span class="size-chip active">M</span>
+                        <span class="size-chip">L</span><span class="size-chip">XL</span>
+                    </div>
                     <div class="product-pricing">
                         <span class="price">$25.00</span>
                         <span class="original-price">$35.00</span>
@@ -207,21 +317,26 @@
                     <p class="stock-status in-stock"><i class="fa-solid fa-circle-dot"></i> In Stock</p>
                     <div class="product-actions">
                         <button class="add-to-cart-btn" onclick="addToCart('Classic Night Dress',25,'cubs dress/girlsnightweardress1.jfif')"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-                        <button class="buy-now-btn" onclick="buyNow('Classic Night Dress',25,'cubs dress/girlsnightweardress1.jfif')">Buy Now</button>
+                        <button class="buy-now-btn" onclick="buyNow('Classic Night Dress',25,'cubs dress/girlsnightweardress1.jfif')"><i class="fa-solid fa-bolt"></i> Buy Now</button>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card" data-search="elegant night wear women">
+            <div class="product-card" data-search="elegant night wear women" data-category="women" data-price="30" data-rating="5">
                 <div class="product-image-wrap">
                     <span class="product-badge badge-bestseller">Bestseller</span>
-                    <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this, 'Elegant Night Wear')"><i class="fa-regular fa-heart"></i></button>
                     <img src="cubs dress/girlsnightweardress2.jfif" alt="Elegant Night Wear">
+                    <div class="quick-view-overlay"><button onclick="addToCart('Elegant Night Wear',30,'cubs dress/girlsnightweardress2.jfif')"><i class="fa-solid fa-cart-plus"></i> Quick Add</button></div>
                 </div>
                 <div class="product-info">
                     <h3>Elegant Night Wear</h3>
-                    <div class="product-rating"><span class="stars">★★★★★</span><span class="review-count">(89 reviews)</span></div>
-                    <p class="product-meta">Sizes: S–XL &nbsp;|&nbsp; Women</p>
+                    <div class="product-rating"><span class="stars">★★★★★</span><span class="review-count">(89)</span></div>
+                    <p class="product-meta"><i class="fa-solid fa-person-dress"></i> Women &nbsp;·&nbsp; S to XL</p>
+                    <div class="size-picker">
+                        <span class="size-chip">S</span><span class="size-chip">M</span>
+                        <span class="size-chip active">L</span><span class="size-chip">XL</span>
+                    </div>
                     <div class="product-pricing">
                         <span class="price">$30.00</span>
                         <span class="original-price">$42.00</span>
@@ -230,21 +345,26 @@
                     <p class="stock-status in-stock"><i class="fa-solid fa-circle-dot"></i> In Stock</p>
                     <div class="product-actions">
                         <button class="add-to-cart-btn" onclick="addToCart('Elegant Night Wear',30,'cubs dress/girlsnightweardress2.jfif')"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-                        <button class="buy-now-btn" onclick="buyNow('Elegant Night Wear',30,'cubs dress/girlsnightweardress2.jfif')">Buy Now</button>
+                        <button class="buy-now-btn" onclick="buyNow('Elegant Night Wear',30,'cubs dress/girlsnightweardress2.jfif')"><i class="fa-solid fa-bolt"></i> Buy Now</button>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card" data-search="premium night dress women">
+            <div class="product-card" data-search="premium night dress women" data-category="women" data-price="35" data-rating="4">
                 <div class="product-image-wrap">
                     <span class="product-badge badge-sale">Sale</span>
-                    <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this, 'Premium Night Dress')"><i class="fa-regular fa-heart"></i></button>
                     <img src="cubs dress/girlsnightweardress3.jfif" alt="Premium Night Dress">
+                    <div class="quick-view-overlay"><button onclick="addToCart('Premium Night Dress',35,'cubs dress/girlsnightweardress3.jfif')"><i class="fa-solid fa-cart-plus"></i> Quick Add</button></div>
                 </div>
                 <div class="product-info">
                     <h3>Premium Night Dress</h3>
-                    <div class="product-rating"><span class="stars">★★★★☆</span><span class="review-count">(43 reviews)</span></div>
-                    <p class="product-meta">Sizes: S–XL &nbsp;|&nbsp; Women</p>
+                    <div class="product-rating"><span class="stars">★★★★☆</span><span class="review-count">(43)</span></div>
+                    <p class="product-meta"><i class="fa-solid fa-person-dress"></i> Women &nbsp;·&nbsp; S to XL</p>
+                    <div class="size-picker">
+                        <span class="size-chip">S</span><span class="size-chip active">M</span>
+                        <span class="size-chip">L</span><span class="size-chip">XL</span>
+                    </div>
                     <div class="product-pricing">
                         <span class="price">$35.00</span>
                         <span class="original-price">$50.00</span>
@@ -253,7 +373,7 @@
                     <p class="stock-status in-stock"><i class="fa-solid fa-circle-dot"></i> In Stock</p>
                     <div class="product-actions">
                         <button class="add-to-cart-btn" onclick="addToCart('Premium Night Dress',35,'cubs dress/girlsnightweardress3.jfif')"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-                        <button class="buy-now-btn" onclick="buyNow('Premium Night Dress',35,'cubs dress/girlsnightweardress3.jfif')">Buy Now</button>
+                        <button class="buy-now-btn" onclick="buyNow('Premium Night Dress',35,'cubs dress/girlsnightweardress3.jfif')"><i class="fa-solid fa-bolt"></i> Buy Now</button>
                     </div>
                 </div>
             </div>
@@ -264,37 +384,54 @@
     <div id="no-results" class="no-results" style="display:none;">
         <i class="fa-solid fa-magnifying-glass"></i>
         <h3>No products found</h3>
-        <p>Try searching with a different keyword</p>
+        <p>Try a different keyword or browse all products</p>
+        <button class="btn-primary" onclick="clearSearch()">Show All Products</button>
     </div>
-</div>
+</main>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="newsletter-section">
+    <div class="newsletter-inner">
+        <div class="newsletter-text">
+            <h2><i class="fa-solid fa-envelope-open-text"></i> Stay in Style</h2>
+            <p>Get exclusive deals, new arrivals &amp; comfort tips straight to your inbox.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit"><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
+        </form>
+    </div>
+</section>
 
 <!-- ===== FOOTER ===== -->
 <footer class="site-footer">
     <div class="footer-content">
         <div class="footer-col">
             <h3><i class="fa-solid fa-moon"></i> SIV NIGHTWEARS</h3>
-            <p>Premium comfort nightwear for kids and women. Quality fabrics, affordable prices.</p>
+            <p>Premium organic nightwear for kids and women. Comfort you can feel, quality you can trust.</p>
             <div class="footer-social">
                 <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                 <a href="#" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
             </div>
         </div>
         <div class="footer-col">
             <h4>Quick Links</h4>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="categories.html">Categories</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="categories.html"><i class="fa-solid fa-list"></i> Categories</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
             </ul>
         </div>
         <div class="footer-col">
             <h4>Customer Care</h4>
             <ul>
-                <li>Free Shipping over $50</li>
-                <li>30-Day Easy Returns</li>
-                <li>24/7 Support</li>
-                <li>Secure Payments</li>
+                <li><i class="fa-solid fa-truck-fast"></i> Free Shipping over $50</li>
+                <li><i class="fa-solid fa-rotate-left"></i> 30-Day Easy Returns</li>
+                <li><i class="fa-solid fa-headset"></i> 24/7 Support</li>
+                <li><i class="fa-solid fa-shield-halved"></i> Secure Payments</li>
+                <li><i class="fa-solid fa-leaf"></i> Eco-Friendly Products</li>
             </ul>
         </div>
         <div class="footer-col">
@@ -302,14 +439,16 @@
             <p><i class="fa-solid fa-phone"></i> +91 9840662383</p>
             <p><i class="fa-solid fa-envelope"></i> sivalimkannan@gmail.com</p>
             <p><i class="fa-solid fa-location-dot"></i> Chennai, India</p>
+            <p><i class="fa-solid fa-clock"></i> Mon–Sat: 9AM – 6PM</p>
         </div>
     </div>
     <div class="footer-bottom">
         <p>&copy; 2025 SIV NIGHTWEARS. All rights reserved.</p>
-        <div class="payment-icons">
+        <div class="payment-icons" title="Accepted payments">
             <i class="fa-brands fa-cc-visa"></i>
             <i class="fa-brands fa-cc-mastercard"></i>
             <i class="fa-brands fa-cc-paypal"></i>
+            <i class="fa-brands fa-cc-amazon-pay"></i>
         </div>
     </div>
 </footer>
@@ -326,15 +465,23 @@
             <p class="empty-cart"><i class="fa-solid fa-bag-shopping"></i><br>Your cart is empty</p>
         </div>
         <div class="cart-footer">
-            <div class="cart-total"><strong>Total: $<span id="total-price">0.00</span></strong></div>
-            <button class="checkout-btn" onclick="checkout()"><i class="fa-solid fa-bolt"></i> Proceed to Checkout</button>
+            <div class="cart-subtotal"><span>Subtotal</span><span>$<span id="total-price">0.00</span></span></div>
+            <p class="cart-shipping-note"><i class="fa-solid fa-truck-fast"></i> Free shipping on this order!</p>
+            <button class="checkout-btn" onclick="checkout()"><i class="fa-solid fa-lock"></i> Secure Checkout</button>
+            <button class="continue-shopping-btn" onclick="toggleCart()">Continue Shopping</button>
         </div>
     </div>
 </div>
 
+<!-- ===== SCROLL TO TOP ===== -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+</button>
+
 <script>
     // ======= Cart =======
     let cart = JSON.parse(localStorage.getItem('siv-cart')) || [];
+    let wishlist = JSON.parse(localStorage.getItem('siv-wishlist')) || [];
 
     function addToCart(name, price, image) {
         const existing = cart.find(i => i.name === name);
@@ -342,7 +489,7 @@
         else { cart.push({ id: Date.now(), name, price, image, quantity: 1 }); }
         localStorage.setItem('siv-cart', JSON.stringify(cart));
         updateCartDisplay();
-        showNotification(`<i class="fa-solid fa-check-circle"></i> ${name} added to cart!`);
+        showNotification(`<i class="fa-solid fa-check-circle"></i> ${name} added to cart!`, 'success');
     }
 
     function buyNow(name, price, image) {
@@ -375,7 +522,7 @@
             items += item.quantity; price += item.price * item.quantity;
             return `<div class="cart-item">
                 <img src="${item.image}" alt="${item.name}">
-                <div class="item-details"><h4>${item.name}</h4><p>$${item.price.toFixed(2)}</p></div>
+                <div class="item-details"><h4>${item.name}</h4><p>$${item.price.toFixed(2)} each</p></div>
                 <div class="quantity-control">
                     <button onclick="updateQuantity(${item.id},${item.quantity-1})">−</button>
                     <input type="text" value="${item.quantity}" readonly>
@@ -385,38 +532,33 @@
                 <button class="remove-btn" onclick="removeFromCart(${item.id})"><i class="fa-solid fa-trash"></i></button>
             </div>`;
         }).join('');
-        badge.textContent = items;
-        total.textContent = price.toFixed(2);
+        badge.textContent = items; total.textContent = price.toFixed(2);
     }
 
-    function toggleCart() {
-        document.getElementById('cart-modal').classList.toggle('show');
-    }
+    function toggleCart() { document.getElementById('cart-modal').classList.toggle('show'); }
 
     function checkout() {
         if (!cart.length) { alert('Your cart is empty!'); return; }
-        alert('Thank you for your purchase! Order confirmed 🎉');
+        alert('🎉 Thank you for your purchase!\nYour order is confirmed. Happy Shopping!');
         cart = []; localStorage.setItem('siv-cart', JSON.stringify(cart));
         updateCartDisplay(); toggleCart();
     }
 
-    function showNotification(html) {
-        const n = document.createElement('div');
-        n.className = 'notification'; n.innerHTML = html;
-        document.body.appendChild(n);
-        setTimeout(() => n.remove(), 2500);
-    }
-
     // ======= Wishlist =======
-    function toggleWishlist(btn) {
+    function toggleWishlist(btn, name) {
         const icon = btn.querySelector('i');
         icon.classList.toggle('fa-regular');
         icon.classList.toggle('fa-solid');
         btn.classList.toggle('wishlisted');
-        showNotification(btn.classList.contains('wishlisted')
-            ? '<i class="fa-solid fa-heart"></i> Added to wishlist!'
-            : '<i class="fa-regular fa-heart"></i> Removed from wishlist');
+        const added = btn.classList.contains('wishlisted');
+        if (added && !wishlist.includes(name)) wishlist.push(name);
+        else wishlist = wishlist.filter(n => n !== name);
+        localStorage.setItem('siv-wishlist', JSON.stringify(wishlist));
+        document.getElementById('wishlist-count').textContent = wishlist.length;
+        showNotification(added ? `<i class="fa-solid fa-heart"></i> Added to wishlist!`
+            : `<i class="fa-regular fa-heart"></i> Removed from wishlist`, added ? 'pink' : '');
     }
+    function toggleWishlistPanel() { showNotification(`<i class="fa-solid fa-heart"></i> Wishlist: ${wishlist.length} item(s)`, 'pink'); }
 
     // ======= Search =======
     function runSearch(q) {
@@ -428,33 +570,103 @@
             card.style.display = match ? '' : 'none';
             if (match) found++;
         });
+        document.getElementById('product-count').textContent = found + ' product' + (found !== 1 ? 's' : '');
         document.getElementById('no-results').style.display = (!found && q) ? 'block' : 'none';
+    }
+
+    function clearSearch() {
+        document.getElementById('navSearchInput').value = '';
+        document.getElementById('mobileSearchInput').value = '';
+        runSearch('');
     }
 
     document.getElementById('navSearchInput').addEventListener('input', e => runSearch(e.target.value));
     document.getElementById('navSearchInput').addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(e.target.value); });
     document.getElementById('navSearchBtn').addEventListener('click', () => runSearch(document.getElementById('navSearchInput').value));
-
-    document.getElementById('mobileSearchInput').addEventListener('input', e => {
-        document.getElementById('navSearchInput').value = e.target.value;
-        runSearch(e.target.value);
-    });
+    document.getElementById('mobileSearchInput').addEventListener('input', e => { document.getElementById('navSearchInput').value = e.target.value; runSearch(e.target.value); });
     document.getElementById('mobileSearchBtn').addEventListener('click', () => runSearch(document.getElementById('mobileSearchInput').value));
-
-    // Mobile search toggle
     document.getElementById('searchToggle').addEventListener('click', () => {
         const bar = document.getElementById('mobile-search-bar');
         bar.classList.toggle('show');
         if (bar.classList.contains('show')) document.getElementById('mobileSearchInput').focus();
     });
 
-    // Hamburger
+    // ======= Filter & Sort =======
+    document.querySelectorAll('.filter-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+            document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            const filter = pill.dataset.filter;
+            const cards = document.querySelectorAll('.product-card');
+            let count = 0;
+            cards.forEach(card => {
+                const show = filter === 'all' || card.dataset.category === filter;
+                card.style.display = show ? '' : 'none';
+                if (show) count++;
+            });
+            document.getElementById('product-count').textContent = count + ' product' + (count !== 1 ? 's' : '');
+        });
+    });
+
+    document.getElementById('sortSelect').addEventListener('change', () => {
+        const val = document.getElementById('sortSelect').value;
+        const grids = document.querySelectorAll('.products-grid');
+        grids.forEach(grid => {
+            const cards = [...grid.querySelectorAll('.product-card')];
+            cards.sort((a, b) => {
+                if (val === 'price-low') return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+                if (val === 'price-high') return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+                if (val === 'rating') return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
+                if (val === 'name') return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent);
+                return 0;
+            });
+            cards.forEach(c => grid.appendChild(c));
+        });
+    });
+
+    // ======= Size Chips =======
+    document.addEventListener('click', e => {
+        if (e.target.classList.contains('size-chip')) {
+            const parent = e.target.closest('.size-picker');
+            parent.querySelectorAll('.size-chip').forEach(c => c.classList.remove('active'));
+            e.target.classList.add('active');
+        }
+    });
+
+    // ======= Newsletter =======
+    function subscribeNewsletter(e) {
+        e.preventDefault();
+        const email = e.target.querySelector('input').value;
+        showNotification(`<i class="fa-solid fa-check-circle"></i> Subscribed! Welcome aboard 🎉`, 'success');
+        e.target.reset();
+    }
+
+    // ======= Notification =======
+    function showNotification(html, type = '') {
+        const n = document.createElement('div');
+        n.className = 'notification' + (type ? ' notif-' + type : '');
+        n.innerHTML = html;
+        document.body.appendChild(n);
+        setTimeout(() => n.remove(), 2800);
+    }
+
+    // ======= Hamburger =======
     document.getElementById('hamburger').addEventListener('click', () => {
         document.getElementById('nav-menu').classList.toggle('open');
         document.getElementById('hamburger').classList.toggle('active');
     });
 
-    window.addEventListener('DOMContentLoaded', updateCartDisplay);
+    // ======= Scroll to Top =======
+    window.addEventListener('scroll', () => {
+        document.getElementById('scrollTop').style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+
+    // ======= Init =======
+    window.addEventListener('DOMContentLoaded', () => {
+        updateCartDisplay();
+        document.getElementById('wishlist-count').textContent = wishlist.length;
+        document.getElementById('product-count').textContent = document.querySelectorAll('.product-card').length + ' products';
+    });
 </script>
 </body>
 </html>
